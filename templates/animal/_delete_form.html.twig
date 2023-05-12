@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('app_animal_delete', {'id': animal.id}) }}" onsubmit="return confirm('Tem certeza de que deseja excluir este item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ animal.id) }}">
+    {% set button_class = 'btn btn-danger' %}
+    <button type="submit" class="btn {{ button_class }}">Delete</button>
+
+</form>

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animal{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1>Animal</h1>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ animal.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <td>{{ animal.codigo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Leite</th>
+                            <td>{{ animal.leite is not null ? animal.leite|number_format(2, ',', '') : '-' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ração</th>
+                            <td>{{ animal.racao is not null ? animal.racao|number_format(2, ',', '') : '-' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Peso</th>
+                            <td>{{animal.peso is not null ?animal.peso|number_format(2, ',', '') : '-' }}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Nascimento</th>
+                            <td>{{animal.nascimento ? animal.nascimento|date('d/m/Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Abate</th>
+                            <td>{{ animal.abate ? 'Sim' : 'Não' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-end flex-row mb-3">
+                    <a href="{{ path('animal_relatorioAnimais') }}" class="btn btn-light mr-2" style="border: 1px solid #ccc;">Voltar</a>
+
+
+
+                    <a href="{{ path('app_animal_edit', {'id': animal.id}) }}" class="btn btn-primary mr-2">Editar</a>
+                   {{ include('animal/_delete_form.html.twig', {'animal': animal, }) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    
+    {% for flash_message in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">{{ flash_message }}</div>
+    {% endfor %}
+
+    <div class="card-index" >
+        <div class="card m-3 mx-auto" style="max-width: 90%;">
+            <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+
+                    
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_relatorioAnimais' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_relatorioAnimais')}}">
+                                Animais
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_relatorioAnimaisAbate' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_relatorioAnimaisAbate')}}">
+                                Animais para abate
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_relatorioAnimaisAbatidos' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_relatorioAnimaisAbatidos')}}">
+                               Animais abatidos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_quantidade_leite' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_quantidade_leite')}}">
+                                Leite
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_quantidade_racao' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_quantidade_racao')}}">
+                               Ração
+                            </a>
+                        </li>
+
+                        
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold {{ app.request.get("_route") == 'animal_quantidade_bezerros' ? 'active' : ''}}" aria-current="page" href="{{ path('animal_quantidade_bezerros')}}">
+                               Bezerros
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+               
+            {% block card %}{% endblock %}
+        </div>
+    </div>
+
+    <script>
+        // Procura por todas as notificações de sucesso e as esconde após 5 segundos
+        setTimeout(function() {
+            var successAlerts = document.querySelectorAll('.alert-success');
+            successAlerts.forEach(function(alert) {
+                alert.style.display = 'none';
+            });
+        }, 5000);
+    </script>
+    
+{% endblock %}

@@ -1,0 +1,68 @@
+<style>
+    .card-index {
+        padding-top: 30px;
+    }
+    .table-body {
+        line-height: 3; 
+    }
+    .tab-content{
+        padding-top: 10px;
+    }
+    .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        height: 40px;
+    }
+    .mb-3 {
+        padding-top: 30px;
+    }
+    label {
+        font-weight: bold;
+    }
+    #total-leite {
+    font-size: 20px;
+    }
+    td a.btn {
+    margin-right: 10px;
+    display: inline-block;
+    }
+    .btn-custom {
+   width: 90%;
+    }
+
+
+
+</style>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gerenciador Bovino{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="font-size: 24px;">Gerenciador Bovino</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+               
+            </div>
+        </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

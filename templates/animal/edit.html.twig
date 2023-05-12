@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Editar</h4>
+            </div>
+            <div class="card-body">
+                {{ form_start(form) }}
+
+                <div class="row mb-3">
+                    <div class="col">
+                        {{ form_row(form.codigo, {'label_attr': {'class': 'sr-only'}, 'attr': {'class': 'form-control', 'placeholder': 'Código'}}) }}
+                    </div>
+                    <div class="col">
+                        {{ form_row(form.nascimento, {'label_attr': {'class': 'sr-only'}, 'attr': {'class': 'form-control', 'placeholder': 'Data de nascimento'}}) }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        {{ form_row(form.peso, {'label_attr': {'class': 'sr-only'}, 'attr': {'class': 'form-control has-label-inside', 'placeholder': 'Peso (kg)'}}) }}
+                    </div>
+                    <div class="col">
+                        {{ form_row(form.racao, {'label_attr': {'class': 'sr-only'}, 'attr': {'class': 'form-control has-label-inside', 'placeholder': 'Quantidade de Ração (kg)'}}) }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-6">
+                        {{ form_row(form.leite, {'label_attr': {'class': 'sr-only'}, 'attr': {'class': 'form-control', 'placeholder': 'Quantidade de Leite (litros)'}}) }}
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end flex-row mb-3">
+                    <a href="{{ path('animal_relatorioAnimais') }}" class="btn btn-light mr-2" style="border: 1px solid #ccc;">Voltar</a>
+                    <button class="btn btn btn-success">{{ button_label|default('Salvar') }}</button>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
